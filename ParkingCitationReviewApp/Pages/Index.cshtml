@@ -1,0 +1,373 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div class="row">
+    <div class="col-md-12">
+
+        <form method="post" class="form-horizontal" enctype="multipart/form-data">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group row">
+                <div class="col-md-12" style="background-color:gray;width:100%">
+                    <label control-label" style="color:white"> CITATION INFORMATION</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <label control-label" style="background-color:skyblue;width:100%"> CITATION NO: *</label>
+                    <input asp-for="ObjCitationReview.CitationNumber" class="form-control" placeholder="Citation No" />
+                    <span asp-validation-for="ObjCitationReview.CitationNumber" class="text-danger"></span>
+
+                </div>
+                <div class="col-md-6">
+                    <label control-label" style="background-color:skyblue;width:100%">CITATION DATE:*</label>
+                    <input asp-for="ObjCitationReview.CitationIssueDate" id="objCitationIssuedate" class="form-control" placeholder="Issue Date" type="text" />
+                    <span asp-validation-for="ObjCitationReview.CitationIssueDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <label control-label" style="background-color:skyblue;width:100%"> PLATE NO: *</label>
+                    <input asp-for="ObjCitationReview.PlateNumber" class="form-control" placeholder="Plate Number" />
+                    <span asp-validation-for="ObjCitationReview.PlateNumber" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label control-label" style="background-color:skyblue;width:100%"> REQUEST DATE: *</label>
+
+                    <input asp-for="ObjCitationReview.RequestDate" id="objCitationRequestdate" class="form-control" placeholder="Request Date" type="date" />
+                    <span asp-validation-for="ObjCitationReview.RequestDate" class="text-danger"></span>
+                </div>
+            </div>
+            @*<div class="form-group">
+            <div class="col-sm-3"><label>First name</label>
+            <input type="text" class="form-control" placeholder="First"></div>
+            <div class="col-sm-3"><label>Last name</label><input type="text" class="form-control" placeholder="Last"></div>
+        </div>*@
+            <div class="col-md-12" style="background-color:gray;width:100%">
+                <label control-label" style="color:white"> REQUESTOR/OWNER INFORMATION</label>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-xs-4">
+                    <label for="ex1" style="background-color:skyblue;width:100%">FIRST NAME *</label>
+                    <input asp-for="ObjCitationReview.RecipientFirstName" class="form-control" placeholder="First">
+                    <span asp-validation-for="ObjCitationReview.RecipientFirstName" class="text-danger"></span>
+                </div>
+                <div class="col-xs-3">
+                    <label for="ex2" style="background-color:skyblue;width:100%">MIDDLE INITIAL: </label>
+                    <input asp-for="ObjCitationReview.RecipientMiddleInitial" class="form-control" placeholder="M.I.">
+
+                </div>
+                <div class="col-xs-4">
+                    <label for="ex3" style="background-color:skyblue;width:100%">LAST NAME*</label>
+                    <input asp-for="ObjCitationReview.RecipientLastName" class="form-control" placeholder="Last">
+                    <span asp-validation-for="ObjCitationReview.RecipientLastName" class="text-danger"></span>
+
+                </div>
+                <div class="col-md-4">
+                    <label control-label" style="background-color:skyblue;width:100%">REQUESTOR NAME: *</label>
+                    <input asp-for="ObjCitationReview.RequestorName" class="form-control" placeholder="REQUESTOR NAME" />
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label control-label" style="background-color:skyblue;width:100%">STREET ADDRESS 1 :</label>
+
+                <input asp-for="ObjCitationReview.RecipientAddress1" class="form-control" placeholder="Address" />
+                <span asp-validation-for="ObjCitationReview.RecipientAddress1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label control-label" style="background-color:skyblue;width:100%">STREET ADDRESS 2 :</label>
+
+                <input asp-for="ObjCitationReview.RecipientAddress2" class="form-control" placeholder="Address" />
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-2">
+                    <label for="ex1" style="background-color:skyblue;width:100%">CITY</label>
+                    <input asp-for="ObjCitationReview.RecipientAddressCity" class="form-control" placeholder="First">
+                    <span asp-validation-for="ObjCitationReview.RecipientAddressCity" class="text-danger"></span>
+                </div>
+                <div class="col-xs-3">
+                    <label for="ex2" style="background-color:skyblue;width:100%">STATE</label>
+                    <select class="custom-select" id="SelectState" asp-for="ObjCitationReview.RecipientAddressState" asp-items="@(new SelectList(Model.statesDictory,"Key", "Value"))">
+                        <option value="" selected disabled="disabled">--Select State--</option>
+                    </select>
+                    <span asp-validation-for="ObjCitationReview.RecipientAddressState" class="text-danger"></span>
+
+                </div>
+                <div class="col-xs-4">
+                    <label for="ex3" style="background-color:skyblue;width:100%">ZIP</label>
+                    <input asp-for="ObjCitationReview.RecipientAddressZip" class="form-control" placeholder="Last">
+                    <span asp-validation-for="ObjCitationReview.RecipientAddressZip" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <label control-label" style="background-color:skyblue;width:100%">HOME PHONE No: </label>
+                    @*<input type="text" class="form-control bfh-phone" data-format="+1 (ddd) ddd-dddd">*@
+                    <input asp-for="ObjCitationReview.RecipientHomePhone" class="form-control" placeholder="Home phone no" data-format="+1 (ddd) ddd-dddd" />
+                </div>
+                <div class="col-md-6">
+                    <label control-label" style="background-color:skyblue;width:100%">EMAIL ADDRESS : </label>
+                    <input asp-for="ObjCitationReview.RecipientEmailAddress" class="form-control" placeholder="Email Id" />
+                    <span asp-validation-for="ObjCitationReview.RecipientEmailAddress" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-4">
+                    <label for="ex1" style="background-color:skyblue;width:100%">WORK PHONE : </label>
+                    <input asp-for="ObjCitationReview.RecipientWorkPhone" class="form-control" placeholder="Work Phone">
+                </div>
+                <div class="col-xs-3">
+                    <label for="ex2" style="background-color:skyblue;width:100%">EXT: </label>
+                    <input asp-for="ObjCitationReview.RecipientWorkExt" class="form-control" placeholder="Ext">
+                </div>
+
+            </div>
+            @*<div class="form-group">
+            <div class="col-sm-3"><label>City</label><input asp-for="ObjCitationReview.RecipientAddressCity" class="form-control" placeholder="City"></div>
+            <div class="col-sm-3">
+                <label>State</label><select id="SelectState" asp-for="ObjCitationReview.RecipientAddressState" asp-items="@(new SelectList(Model.statesDictory,"Key", "Value"))">
+                    <option value="" selected disabled="disabled">--Select State--</option>
+                </select>
+            </div>
+            <div class="col-sm-3"><label>Zip Code:</label><input asp-for="ObjCitationReview.RecipientAddressZip" class="form-control" placeholder="Zip"></div>
+        </div>*@
+
+
+
+
+
+            @*<div class="form-group">
+            State:
+            <select id="SelectStreettype" asp-items="@(new SelectList(Model.streetDictionary,"Key", "Value"))">
+                <option value="" selected disabled="disabled">--Select StreetType--</option>
+
+            </select>
+        </div>*@
+
+
+            <div class="form-group">
+                <div class="form-group row">
+                    <div class="col-md-12" style="background-color:gray;width:100%">
+                        <label control-label" style="color:white">ADMINISTRATIVE REVIEW REQUESTED FOR FOLLOWING REASON(S)</label>
+                    </div>
+                </div>
+                @*<label for="ex3">ADMINISTRATIVE REVIEW REQUESTED FOR FOLLOWING REASON(S)</label>*@
+                <br />
+                @foreach (var items in Model.displaydata)
+                {
+                    <label class="radio-inline">
+                        <input type="radio" asp-for="ObjCitationReview.ReasonId" value="@items.ReasonId" id="ObjCitationReview.ReasonId@(items.ReasonId)" />@items.ReasonDescription<br />
+                    </label>
+                    <br />
+                }
+                <span asp-validation-for="ObjCitationReview.ReasonId" class="text-danger"></span>
+                <br />
+                <div class="col-md-12" style="background-color:gray;width:100%">
+                    <label control-label" style="color:white">
+                        Only forms that meet the criteria listed above will be accepted for an Administrative Review. Supporting documentation is required, such as pictures, repair receipts or DMV information. Please attach.
+                        DESCRIPTION/EXPLANATION OF MEDICAL EMERGENCY
+                    </label>
+                </div>
+
+                @*<label for="ex3">Request Explanation : </label>*@
+                <br />
+                <textarea class="form-control" id="TextArea1" rows="8" cols="30" asp-for="ObjCitationReview.ReasonExplanation" maxlength="1000"></textarea>
+                <span class="counter"></span>
+
+                <br />
+
+                <span asp-validation-for="ObjCitationReview.ReasonExplanation" class="text-danger"></span>
+                <br />
+                <input id="File1" type="file" asp-for="UploadFiles" />
+
+
+            </div>
+            <div class="form-group row">
+                <div class="col-md-12" style="background-color:gray;width:100%">
+                    <label control-label" style="color:white">
+                        BY MY SIGNATURE, I DECLARE THE INFORMATION SUBMITTED IN REGARD TO THIS REQUEST FOR ADMINISTRATIVE REVIEW OF PARKING CITATIONS IS TRUE
+                        AND ACCURATE TO THE BEST OF MY KNOWLEDGE AND BELIEF.
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-xs-4">
+                    <label for="ex1">SIGNATURE </label>
+                    <input asp-for="ObjCitationReview.RecipientSign" class="form-control" placeholder="SIGNATURE">
+                    <span asp-validation-for="ObjCitationReview.RecipientSign" class="text-danger"></span>
+                </div>
+                <div class="col-xs-3">
+                    <div class="col-xs-4">
+                        <label for="ex1">DATE </label>
+                        <input asp-for="ObjCitationReview.SignDate" class="form-control" placeholder="SIGNATURE" type="date">
+                        <span asp-validation-for="ObjCitationReview.SignDate" class="text-danger"></span>
+
+                    </div>
+                    <div class="col-xs-3">
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div style="display: none">
+
+                <button type="button" id="hiddenbtn1" class="btn btn-primary" data-toggle="modal" data-target="#MessageModal" data-whatever="The Date Issued cannot be later than the Date of Request"></button>
+                <button type="button" id="hiddenbtn2" class="btn btn-primary" data-toggle="modal" data-target="#MessageModal" data-whatever="The Date Issued cannot be later than today's date"></button>
+                <button type="button" id="hiddenbtn3" class="btn btn-primary" data-toggle="modal" data-target="#MessageModal" data-whatever="Please upload the file less than 1 MB."></button>
+                <button type="button" id="hiddenbtn4" class="btn btn-primary" data-toggle="modal" data-target="#MessageModal" data-whatever="Please upload the file that has (.BMP, .PDF,.DOC,.DOCX,.GIF,.JPG,.JPEG,.PNG,.TXT) extensions."></button>
+            </div>
+            <div class="modal fade" id="MessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Alert Message</h5>
+                            @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>*@
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                @*<label for="recipient-name" class="col-form-label">Recipient:</label>*@
+                                <input type="text" disabled="disabled" class="form-control" id="recipient-name">
+                            </div>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <input type="submit" value="Submit" class="btn btn-primary" id="btnSave" />
+
+
+            @section Scripts
+            {
+             
+                <script>
+
+
+                    $(document).ready(function () {
+                        $("input[data-val-length-max]").each(function (index, element) {
+                            var length = parseInt($(this).attr("data-val-length-max"));
+                            $(this).prop("maxlength", length);
+                        });
+
+                    });
+           
+                    var maxLength = 1000;
+                    $('#TextArea1').keyup(function () {
+                        var length = $(this).val().length;
+                        var length = maxLength - length;
+                        $(this).parent().find('.counter').text(length + " characters remaning out of " + maxLength);
+                    });
+
+
+                    //if ($('#objCitationIssuedate')[0].type != 'date')
+                    //    $('#objCitationIssuedate').datepicker();
+                    $('#btnSave').click(function () {
+                        // alert('click');
+                        //var obj = {};
+
+                        var objCitationIssuedate = $('#objCitationIssuedate').val();
+                        var objCitationRequestdate = $('#objCitationRequestdate').val();
+                        var today = new Date().toISOString().split('T')[0];
+                        console.log(objCitationIssuedate);
+                        console.log(objCitationRequestdate);
+                        console.log(today);
+
+
+                        if (Date.parse(objCitationIssuedate) > Date.parse(objCitationRequestdate)) {
+                            $('#hiddenbtn1').click();
+                            return false;
+
+                        }
+                        if (Date.parse(objCitationIssuedate) > Date.parse(today)) {
+                            $('#hiddenbtn2').click();
+                            return false;
+
+                        }
+
+                    });
+                    $('#MessageModal').on('show.bs.modal', function (event) {
+                        var button = $(event.relatedTarget) // Button that triggered the modal
+                        var recipient = button.data('whatever') // Extract info from data-* attributes
+                        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                        var modal = $(this)
+                        modal.find('.modal-title').text('Alert Message')
+                        modal.find('.modal-body input').val(recipient)
+                    })
+
+                    function extractFilename(s) {
+                        // returns string containing everything from the end of the string
+                        //   that is not a back/forward slash or an empty string on error
+                        //   so one can check if return_value===''
+                        var fileName = typeof s === 'string' && (s = s.match(/[^\\\/]+$/)) && s[0] || '';
+                        console.log(fileName);
+                    }
+                    $('#File1').bind('change', function () {
+                        //var ExtensionList = [".AIFF", ".AU", ".AVI", ".BAT", ".BMP", ".CLASS", ".JAVA",".PDF",
+                        //    ".CSV", ".CVS", ".DBF", ".DIF", ".DOC", ".DOCX", ".EPS", ".EXE", ".FM3", ".GIF", ".HQX", ".HTM", ".HTML", ".JPG", ".JPEG", ".MAC", ".MAP", ".MDB", ".MID", ".MIDI", ".MOV", ".QT", ".MTB",
+                        //    ".MTW",".PDF",".P65",".T65",".PNG",".PPT",".PPTX",".PSD",".PSP",".QXD",".RA",".RTF",".SIT",".TAR",".TIF",".TXT",".WAV",".WK3",".WKS",".WPD",".WP5",".XLS",".XLSX",".ZIP"
+                        //];
+                        var ExtensionList = [".BMP", ".PDF", ".DOC", ".DOCX", ".GIF", ".JPG", ".JPEG", ".PNG", ".TXT"];
+                        if (this.files[0].size > 1048576) {
+                            $('#hiddenbtn3').click();
+                            $("#File1").replaceWith($("#File1").val('').clone(true));
+                            //$(this).val('');
+                            return false;
+                            //file exceeds 1MB
+                        }
+                        var fileName = this.value;
+                        var dotPosition = fileName.lastIndexOf(".");
+
+                        var fileExt = fileName.substring(dotPosition).toUpperCase();
+                        console.log(fileExt);
+                        var found = false;
+                        for (var i = 0; i < ExtensionList.length && !found; i++) {
+                            if (ExtensionList[i] === fileExt) {
+                                found = true;
+
+                                break;
+                            }
+                        }
+                        if (!found) {
+                            found = false;
+                            $('#hiddenbtn4').click();
+                            $("#File1").replaceWith($("#File1").val('').clone(true));
+                            //$(this).val('');
+                            return false;
+                        }
+                    });
+
+
+
+                </script>
+
+
+                <partial name="_ValidationScriptsPartial.cshtml" />
+            }
+        </form>
+
+    </div>
+</div>
+
+
+    
+

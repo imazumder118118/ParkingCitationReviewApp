@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f96353c0-bba8-420c-a21a-5fad189af796" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://starappdev2.richva.ci.richmond.va.us/services/noneya/NoneyaWebService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="NoneyaWebService.disco" MetadataType="Disco" ID="601dca19-9c07-472f-8b93-49031fcbd8b0" SourceId="1" SourceUrl="http://dit-webint01-dv.richva.ci.richmond.va.us/services/noneya/NoneyaWebService.svc?disco" />
+    <MetadataFile FileName="NoneyaWebService.xsd" MetadataType="Schema" ID="65976086-ec00-4799-a96f-1f293ba27cce" SourceId="1" SourceUrl="http://dit-webint01-dv.richva.ci.richmond.va.us/services/noneya/NoneyaWebService.svc?xsd=xsd1" />
+    <MetadataFile FileName="NoneyaWebService1.xsd" MetadataType="Schema" ID="cc97944b-21df-4cde-bb0e-54f6526e6a88" SourceId="1" SourceUrl="http://dit-webint01-dv.richva.ci.richmond.va.us/services/noneya/NoneyaWebService.svc?xsd=xsd0" />
+    <MetadataFile FileName="NoneyaWebService2.xsd" MetadataType="Schema" ID="d4c73fe3-5817-4584-b2a5-8a53a3226895" SourceId="1" SourceUrl="http://dit-webint01-dv.richva.ci.richmond.va.us/services/noneya/NoneyaWebService.svc?xsd=xsd2" />
+    <MetadataFile FileName="NoneyaService.wsdl" MetadataType="Wsdl" ID="5c90f593-759e-4f66-9450-4838af7786f7" SourceId="1" SourceUrl="http://dit-webint01-dv.richva.ci.richmond.va.us/services/noneya/NoneyaWebService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://ci.richmond.va.us/services" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NoneyaService" targetNamespace="http://ci.richmond.va.us/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://ci.richmond.va.us/services/Imports">
+      <xsd:import schemaLocation="http://dit-webint01-dv.richva.ci.richmond.va.us/services/noneya/NoneyaWebService.svc?xsd=xsd0" namespace="http://ci.richmond.va.us/services" />
+      <xsd:import schemaLocation="http://dit-webint01-dv.richva.ci.richmond.va.us/services/noneya/NoneyaWebService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://dit-webint01-dv.richva.ci.richmond.va.us/services/noneya/NoneyaWebService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="INoneyaWebService_GetApplicationHostName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationHostName" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetApplicationHostName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationHostNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetRichvaUsersInAppRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRichvaUsersInAppRole" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetRichvaUsersInAppRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRichvaUsersInAppRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetRichvaUsersInAppRoleDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRichvaUsersInAppRoleDepartment" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetRichvaUsersInAppRoleDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRichvaUsersInAppRoleDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetUsersInRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersInRole" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetUsersInRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersInRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_IsAuthorized_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsAuthorized" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_IsAuthorized_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsAuthorizedResponse" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_IsInRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsInRole" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_IsInRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsInRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetApplicationRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationRoles" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetApplicationRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetUserRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRoles" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetUserRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetDepartments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartments" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetDepartments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetDepartmentsInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentsInfo" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetDepartmentsInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetUserInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInformation" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetUserInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetUserInformationFromId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInformationFromId" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetUserInformationFromId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInformationFromIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetUsersDepartmentName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersDepartmentName" />
+  </wsdl:message>
+  <wsdl:message name="INoneyaWebService_GetUsersDepartmentName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersDepartmentNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="INoneyaWebService">
+    <wsdl:operation name="GetApplicationHostName">
+      <wsdl:input wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetApplicationHostName" message="tns:INoneyaWebService_GetApplicationHostName_InputMessage" />
+      <wsdl:output wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetApplicationHostNameResponse" message="tns:INoneyaWebService_GetApplicationHostName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRichvaUsersInAppRole">
+      <wsdl:input wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetRichvaUsersInAppRole" message="tns:INoneyaWebService_GetRichvaUsersInAppRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetRichvaUsersInAppRoleResponse" message="tns:INoneyaWebService_GetRichvaUsersInAppRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRichvaUsersInAppRoleDepartment">
+      <wsdl:input wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetRichvaUsersInAppRoleDepartment" message="tns:INoneyaWebService_GetRichvaUsersInAppRoleDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetRichvaUsersInAppRoleDepartmentResponse" message="tns:INoneyaWebService_GetRichvaUsersInAppRoleDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInRole">
+      <wsdl:input wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetUsersInRole" message="tns:INoneyaWebService_GetUsersInRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetUsersInRoleResponse" message="tns:INoneyaWebService_GetUsersInRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsAuthorized">
+      <wsdl:input wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/IsAuthorized" message="tns:INoneyaWebService_IsAuthorized_InputMessage" />
+      <wsdl:output wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/IsAuthorizedResponse" message="tns:INoneyaWebService_IsAuthorized_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsInRole">
+      <wsdl:input wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/IsInRole" message="tns:INoneyaWebService_IsInRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/IsInRoleResponse" message="tns:INoneyaWebService_IsInRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationRoles">
+      <wsdl:input wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetApplicationRoles" message="tns:INoneyaWebService_GetApplicationRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetApplicationRolesResponse" message="tns:INoneyaWebService_GetApplicationRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoles">
+      <wsdl:input wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetUserRoles" message="tns:INoneyaWebService_GetUserRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetUserRolesResponse" message="tns:INoneyaWebService_GetUserRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartments">
+      <wsdl:input wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetDepartments" message="tns:INoneyaWebService_GetDepartments_InputMessage" />
+      <wsdl:output wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetDepartmentsResponse" message="tns:INoneyaWebService_GetDepartments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentsInfo">
+      <wsdl:input wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetDepartmentsInfo" message="tns:INoneyaWebService_GetDepartmentsInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetDepartmentsInfoResponse" message="tns:INoneyaWebService_GetDepartmentsInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInformation">
+      <wsdl:input wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetUserInformation" message="tns:INoneyaWebService_GetUserInformation_InputMessage" />
+      <wsdl:output wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetUserInformationResponse" message="tns:INoneyaWebService_GetUserInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInformationFromId">
+      <wsdl:input wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetUserInformationFromId" message="tns:INoneyaWebService_GetUserInformationFromId_InputMessage" />
+      <wsdl:output wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetUserInformationFromIdResponse" message="tns:INoneyaWebService_GetUserInformationFromId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersDepartmentName">
+      <wsdl:input wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetUsersDepartmentName" message="tns:INoneyaWebService_GetUsersDepartmentName_InputMessage" />
+      <wsdl:output wsaw:Action="http://ci.richmond.va.us/services/INoneyaWebService/GetUsersDepartmentNameResponse" message="tns:INoneyaWebService_GetUsersDepartmentName_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NoneyaEndpointAddressToServer" type="tns:INoneyaWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetApplicationHostName">
+      <soap:operation soapAction="http://ci.richmond.va.us/services/INoneyaWebService/GetApplicationHostName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRichvaUsersInAppRole">
+      <soap:operation soapAction="http://ci.richmond.va.us/services/INoneyaWebService/GetRichvaUsersInAppRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRichvaUsersInAppRoleDepartment">
+      <soap:operation soapAction="http://ci.richmond.va.us/services/INoneyaWebService/GetRichvaUsersInAppRoleDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInRole">
+      <soap:operation soapAction="http://ci.richmond.va.us/services/INoneyaWebService/GetUsersInRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAuthorized">
+      <soap:operation soapAction="http://ci.richmond.va.us/services/INoneyaWebService/IsAuthorized" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsInRole">
+      <soap:operation soapAction="http://ci.richmond.va.us/services/INoneyaWebService/IsInRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationRoles">
+      <soap:operation soapAction="http://ci.richmond.va.us/services/INoneyaWebService/GetApplicationRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoles">
+      <soap:operation soapAction="http://ci.richmond.va.us/services/INoneyaWebService/GetUserRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartments">
+      <soap:operation soapAction="http://ci.richmond.va.us/services/INoneyaWebService/GetDepartments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentsInfo">
+      <soap:operation soapAction="http://ci.richmond.va.us/services/INoneyaWebService/GetDepartmentsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInformation">
+      <soap:operation soapAction="http://ci.richmond.va.us/services/INoneyaWebService/GetUserInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInformationFromId">
+      <soap:operation soapAction="http://ci.richmond.va.us/services/INoneyaWebService/GetUserInformationFromId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersDepartmentName">
+      <soap:operation soapAction="http://ci.richmond.va.us/services/INoneyaWebService/GetUsersDepartmentName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NoneyaService">
+    <wsdl:port name="NoneyaEndpointAddressToServer" binding="tns:NoneyaEndpointAddressToServer">
+      <soap:address location="http://starappdev2.richva.ci.richmond.va.us/services/noneya/NoneyaWebService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

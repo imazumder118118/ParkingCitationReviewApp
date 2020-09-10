@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ci.richmond.va.us/services" elementFormDefault="qualified" targetNamespace="http://ci.richmond.va.us/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://dit-webint01-dv.richva.ci.richmond.va.us/services/noneya/NoneyaWebService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="GetApplicationHostName">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationHostNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetApplicationHostNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRichvaUsersInAppRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="appId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="role" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRichvaUsersInAppRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetRichvaUsersInAppRoleResult" nillable="true" type="q1:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRichvaUsersInAppRoleDepartment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="appId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="role" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="department" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRichvaUsersInAppRoleDepartmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetRichvaUsersInAppRoleDepartmentResult" nillable="true" type="q2:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersInRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="appId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="role" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersInRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetUsersInRoleResult" nillable="true" type="q3:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsAuthorized">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="appId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userLogonName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsAuthorizedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsAuthorizedResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsInRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="appId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="role" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userLogonName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsInRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsInRoleResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationRoles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="appId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationRolesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetApplicationRolesResult" nillable="true" type="q4:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserRoles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="appId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userLogonName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserRolesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetUserRolesResult" nillable="true" type="q5:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDepartments">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDepartmentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetDepartmentsResult" nillable="true" type="q6:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDepartmentsInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDepartmentsInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDepartmentsInfoResult" nillable="true" type="tns:ArrayOfDepartmentInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfDepartmentInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DepartmentInfo" nillable="true" type="tns:DepartmentInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDepartmentInfo" nillable="true" type="tns:ArrayOfDepartmentInfo" />
+  <xs:complexType name="DepartmentInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DepartmentInfo" nillable="true" type="tns:DepartmentInfo" />
+  <xs:element name="GetUserInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserInformationResult" nillable="true" type="tns:UserInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="UserInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BureauId" type="xs:int" />
+      <xs:element minOccurs="0" name="BureauName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentId" type="xs:int" />
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DistinguishedName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DivisionId" type="xs:int" />
+      <xs:element minOccurs="0" name="DivisionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoneyaId" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Suffix" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelephoneNumber" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="WindowsLogon" nillable="true" type="q7:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserInformation" nillable="true" type="tns:UserInformation" />
+  <xs:element name="GetUserInformationFromId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="noneyaId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInformationFromIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserInformationFromIdResult" nillable="true" type="tns:UserInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersDepartmentName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersDepartmentNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUsersDepartmentNameResult" nillable="true" type="tns:UserDepartmentName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="UserDepartmentName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserDepartmentName" nillable="true" type="tns:UserDepartmentName" />
+</xs:schema>
