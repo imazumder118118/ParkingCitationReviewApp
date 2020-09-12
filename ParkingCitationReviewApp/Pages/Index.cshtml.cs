@@ -71,11 +71,17 @@ namespace ParkingCitationReviewApp.Pages
             //ObjCitationReview.ReasonId = Convert.ToDecimal(Request.Form["SelectReviewReasonIndex"].ToString());
             ObjCitationReview.VehicleMakeId = Convert.ToDecimal(1);
             ObjCitationReview.DeterminationId = Convert.ToDecimal(1);
-           
+            var CheckIfCitationExists = _db.CitationReviewRequest.Any(x => x.CitationNumber == ObjCitationReview.CitationNumber);
+            if (CheckIfCitationExists)
+            {
+                ModelState.AddModelError(string.Empty,"Citation No already exists in our database . It has to be unique to process further.");
+
+            }
+                       
             if (ModelState.IsValid)
             {
                 //TempData["Data"] = ObjCitationReview.RecipientAddressState;
-               
+
 
 
 
@@ -88,26 +94,31 @@ namespace ParkingCitationReviewApp.Pages
 
                     //DefaultValues list //
                     //objCitationReview.VehicleMakeID = Convert.ToInt32(1);
-
-                    if (UploadFiles != null)
-                    {
-
-                        var ServerPath = _configuration.GetSection("MySettings").GetSection("ServerPath").Value;
-                        var uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(UploadFiles.FileName);
-                        var FileUpload = Path.Combine(ServerPath, "Files", uniqueFileName).Replace("\"", string.Empty).Replace("'", string.Empty);
-                        //var FileUpload = Path.Combine(ServerPath, "Files", Path.GetFileName(UploadFiles.FileName)).Replace("\"", string.Empty).Replace("'", string.Empty); ;
-                        using (var fs = new FileStream(FileUpload, FileMode.Create))
-                        {
-                            UploadFiles.CopyTo(fs);
-                            ObjCitationReview.DocumentPath = FileUpload;
-                        }
-                    }
-
-                    _db.CitationReviewRequest.Add(ObjCitationReview);
+                    //check for citation no exists already in the db or not .If exists send a message to the user .
                     
-                    _db.SaveChanges();
+
+                        if (UploadFiles != null)
+                        {
+
+                            var ServerPath = _configuration.GetSection("MySettings").GetSection("ServerPath").Value;
+                            var uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(UploadFiles.FileName);
+                            //DIT-TASK01-DV\ApplicationFiles\Parking
+                            //var FileUpload = Path.Combine(ServerPath, "Files", uniqueFileName).Replace("\"", string.Empty).Replace("'", string.Empty);
+                            var FileUpload = Path.Combine(ServerPath, uniqueFileName).Replace("\"", string.Empty).Replace("'", string.Empty);
+                            //var FileUpload = Path.Combine(ServerPath, "Files", Path.GetFileName(UploadFiles.FileName)).Replace("\"", string.Empty).Replace("'", string.Empty); ;
+                            using (var fs = new FileStream(FileUpload, FileMode.Create))
+                            {
+                                UploadFiles.CopyTo(fs);
+                                ObjCitationReview.DocumentPath = FileUpload;
+                            }
+                        }
+
+                        _db.CitationReviewRequest.Add(ObjCitationReview);
+
+                        _db.SaveChanges();
+                   
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     string msg = ex.StackTrace;
                     throw;
