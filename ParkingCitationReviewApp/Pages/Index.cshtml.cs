@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System.Net.Mime;
+using Microsoft.Extensions.Options;
 
 namespace ParkingCitationReviewApp.Pages
 {
@@ -26,6 +27,7 @@ namespace ParkingCitationReviewApp.Pages
         private readonly IWebHostEnvironment _he;
         private readonly ParkingReviewDBContext _db;
         private readonly IConfiguration _configuration;
+        private readonly recaptcha recaptchaSettings;
 
         private readonly IParkingCitationReviewsTasks pcrTasks;
 
@@ -37,12 +39,13 @@ namespace ParkingCitationReviewApp.Pages
            //public List<int> checklist { get; set; }
 
 
-        public IndexModel(ParkingReviewDBContext db, IParkingCitationReviewsTasks pcrTasks,IWebHostEnvironment he, IConfiguration configuration)
+        public IndexModel(ParkingReviewDBContext db, IParkingCitationReviewsTasks pcrTasks,IWebHostEnvironment he, IConfiguration configuration, IOptions<recaptcha> settings)
         {
             _db = db;
             _he = he;
             _configuration = configuration;
             this.pcrTasks = pcrTasks;
+            recaptchaSettings = settings.Value;
         }
         [BindProperty]
         public IEnumerable<ParkingCitationReviewApp.Models.ReviewReasonIndex> displaydata { get; set; }
@@ -53,10 +56,12 @@ namespace ParkingCitationReviewApp.Pages
 
         [BindProperty]
         public IFormFile UploadFiles { get; set; }
+        
+        
 
-      
 
-       
+
+
         public void OnGet()
         {
             displaydata =  _db.ReviewReasonIndex.ToList();

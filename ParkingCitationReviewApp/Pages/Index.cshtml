@@ -1,6 +1,9 @@
 ﻿@page
+@using Microsoft.Extensions.Options;
+@inject IOptions<ParkingCitationReviewApp.Models.recaptcha> Settings
 @model IndexModel
 @{
+
     ViewData["Title"] = "Home page";
 }
 
@@ -253,18 +256,54 @@
             </div>
 
 
+            <div id="captcha_container"></div>
+            <label id="lblMessage" class="col-form-label"></label>
             <input type="submit" value="Submit" class="btn btn-primary" id="btnSave" />
 
 
             @section Scripts
             {
-             
-                
+
+
                 <!-- Bootstrap DatePicker -->
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" type="text/css" />
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js" type="text/javascript"></script>
                 <!-- Bootstrap DatePicker -->
                 <script>
+
+
+                    //Captcha logic
+                    @*$(document).ready(function () {
+                    var your_site_key = "@Settings.Value.SiteKey";
+                    console.log(your_site_key);
+                        var renderRecaptcha = function () {
+                            alert("grecaptcha is ready!");
+                        grecaptcha.render('#ReCaptchContainer', {
+                            'sitekey': your_site_key,
+                            'callback': reCaptchaCallback,
+                            theme: 'light', //light or dark
+                            type: 'image',// image or audio
+                            size: 'normal'//normal or compact
+                        });
+                    };
+                    var reCaptchaCallback = function (response) {
+                        if (response !== '') {
+                            //document.getElementById('lblMessage').innerHTML = "";
+                            $('#lblMessage').innerHTML = "";
+                        }
+                        };
+                    })
+                    renderRecaptcha();*@
+                    var captchaContainer = null;
+                    var loadCaptcha = function () {
+                        captchaContainer = grecaptcha.render('captcha_container', {
+                            'sitekey':"@Settings.Value.SiteKey",
+                            'callback': function (response) {
+                                console.log(response);
+                            }
+                        });
+                    };
+                    //end of captcha logic
 
 
                     $(document).ready(function () {
@@ -310,7 +349,7 @@
 
 
                         //var today = new Date().toISOString().split('T')[0];
-                        var today = new Date(); var dd = today.getDate(); var mm = today.getMonth() + 1; var yyyy = today.getFullYear(); 
+                        var today = new Date(); var dd = today.getDate(); var mm = today.getMonth() + 1; var yyyy = today.getFullYear();
                         var todaymmddyyyy = mm + "/" + dd + "/" + yyyy;
                         console.log("Citation Issue date " + objCitationIssuedate);
                         console.log("Requestdate" + objCitationRequestdate);
@@ -384,7 +423,7 @@
 
 
                 </script>
-
+                <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
 
                 <partial name="_ValidationScriptsPartial.cshtml" />
             }
@@ -394,5 +433,5 @@
 </div>
 
 
-    
+
 

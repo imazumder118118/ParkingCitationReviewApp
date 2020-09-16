@@ -27,6 +27,7 @@ namespace ParkingCitationReviewApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<recaptcha>(Configuration.GetSection("recaptcha"));
             services.AddDbContext<ParkingReviewDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Myconnection")));
             services.AddRazorPages();
             services.AddSingleton<IParkingCitationReviewsTasks, ParkingCitationReviewsTasks>();
