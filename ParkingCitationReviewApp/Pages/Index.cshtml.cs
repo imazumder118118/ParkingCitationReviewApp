@@ -15,8 +15,9 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
-using System.Net.Mime;
+using System.Net;
 using Microsoft.Extensions.Options;
+using System.Text.Json;
 
 namespace ParkingCitationReviewApp.Pages
 {
@@ -66,8 +67,9 @@ namespace ParkingCitationReviewApp.Pages
         {
             displaydata =  _db.ReviewReasonIndex.ToList();
             statesDictory = this.pcrTasks.GetStatesList();
+            
             //streetDictionary = this.pcrTasks.GetStreetTypeList();
-         
+
 
         }
         public IActionResult OnPost()
@@ -76,11 +78,15 @@ namespace ParkingCitationReviewApp.Pages
             //ObjCitationReview.ReasonId = Convert.ToDecimal(Request.Form["SelectReviewReasonIndex"].ToString());
             ObjCitationReview.VehicleMakeId = Convert.ToDecimal(1);
             ObjCitationReview.DeterminationId = Convert.ToDecimal(1);
+            if(!IsReCaptchValid())
+            {
+                ModelState.AddModelError(string.Empty, "Please check the checkbox, Captcha verification failed.");
+            }
             var CheckIfCitationExists = _db.CitationReviewRequest.Any(x => x.CitationNumber == ObjCitationReview.CitationNumber);
             if (CheckIfCitationExists)
             {
                 ModelState.AddModelError(string.Empty,"Citation No already exists in our database . It has to be unique to process further.");
-
+               
             }
                        
             if (ModelState.IsValid)
@@ -141,6 +147,29 @@ namespace ParkingCitationReviewApp.Pages
             //_db.CitationReview.Add(objCitationReview);
 
             return Page();
+        }
+
+        public bool IsReCaptchValid()
+        {
+            var result = false;
+            var captchaResponse = Request.Form["g-recaptcha-response"];
+            var secretKey = _configuration.GetSection("recaptcha").GetSection("SecretKey").Value;
+            var apiUrl = "https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}";
+            var requestUri = string.Format(apiUrl, secretKey, captchaResponse);
+            var request = (HttpWebRequest)WebRequest.Create(requestUri);
+
+            using (WebResponse response = request.GetResponse())
+            {
+                using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+                {
+                    JsonDocument jdoc = JsonDocument.Parse(stream.ReadToEnd());
+                    var root = jdoc.RootElement;
+                    result =Convert.ToBoolean(root.GetProperty("success").ToString());
+                    //var  result = info[0];
+                    //result = (isSuccess) ? true : false;
+                }
+            }
+            return result;
         }
 
         //[BindProperty]
