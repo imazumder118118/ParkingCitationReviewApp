@@ -256,9 +256,9 @@
             </div>
 
 
-            <div id="captcha_container"></div>
+            <div id="captcha_container" data-expired-callback="recaptchaExpired"></div>
             <label id="lblMessage" class="col-form-label"></label>
-            <input type="submit" value="Submit" class="btn btn-primary" id="btnSave" />
+            <input type="submit" value="Submit" class="btn btn-primary" id="btnSave" disabled='disabled'   />
 
 
             @section Scripts
@@ -272,39 +272,29 @@
                 <script>
 
 
-                    //Captcha logic
-                    @*$(document).ready(function () {
-                    var your_site_key = "@Settings.Value.SiteKey";
-                    console.log(your_site_key);
-                        var renderRecaptcha = function () {
-                            alert("grecaptcha is ready!");
-                        grecaptcha.render('#ReCaptchContainer', {
-                            'sitekey': your_site_key,
-                            'callback': reCaptchaCallback,
-                            theme: 'light', //light or dark
-                            type: 'image',// image or audio
-                            size: 'normal'//normal or compact
-                        });
-                    };
-                    var reCaptchaCallback = function (response) {
-                        if (response !== '') {
-                            //document.getElementById('lblMessage').innerHTML = "";
-                            $('#lblMessage').innerHTML = "";
-                        }
-                        };
-                    })
-                    renderRecaptcha();*@
+               
                     var captchaContainer = null;
                     var loadCaptcha = function () {
                         captchaContainer = grecaptcha.render('captcha_container', {
                             'sitekey':"@Settings.Value.SiteKey",
                             'callback': function (response) {
+                                if (response !== '') {
+                                    //$('#lblMessage').html = "";
+                                    $('#btnSave').prop('disabled', false);
+                                }
+                                else {
+                                   
+                                }
                                 console.log(response);
+                                
                             }
                         });
                     };
-                    //end of captcha logic
-
+                   
+                    function recaptchaExpired() {
+                        $('#btnSave').prop('disabled', true);;
+                    }
+                     //end of captcha logic
 
                     $(document).ready(function () {
                         $("input[data-val-length-max]").each(function (index, element) {
@@ -341,6 +331,25 @@
                     //if ($('#objCitationIssuedate')[0].type != 'date')
                     //    $('#objCitationIssuedate').datepicker();
                     $('#btnSave').click(function () {
+
+                        //client side validation for re-captcha 
+                        //var message = '';
+                        //if (typeof (grecaptcha) != 'undefined') {
+                        //    var response = grecaptcha.getResponse();
+                        //    console.log("response :", response);
+                        //    if (response.length === 0) {
+                        //        console.log('I am here');
+                        //        ('#lblMessage').html = "Please check the checkbox.Captcha verification failed";
+                                
+                        //        return false;
+                        //    }
+                        //    else {
+                        //        $('#lblMessage').html = "";;
+                        //    }
+                            
+                        //}
+                        
+                        //End of client side validaton for re-captcha
                         // alert('click');
                         //var obj = {};
 
