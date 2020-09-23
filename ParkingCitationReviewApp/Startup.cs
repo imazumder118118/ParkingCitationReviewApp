@@ -12,6 +12,7 @@ using ParkingCitationReviews.Business.Interfaces;
 using ParkingCitationReviewApp.Model;
 using Microsoft.EntityFrameworkCore;
 using ParkingCitationReviewApp.Models;
+using ParkingCitationReviews.DataAccess;
 
 namespace ParkingCitationReviewApp
 {
@@ -31,6 +32,7 @@ namespace ParkingCitationReviewApp
             services.AddDbContext<ParkingReviewDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Myconnection")));
             services.AddRazorPages();
             services.AddSingleton<IParkingCitationReviewsTasks, ParkingCitationReviewsTasks>();
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

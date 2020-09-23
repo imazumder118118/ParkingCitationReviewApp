@@ -18,6 +18,8 @@ using Microsoft.Extensions.Configuration;
 using System.Net;
 using Microsoft.Extensions.Options;
 using System.Text.Json;
+using ParkingCitationReviews.EntityObjects;
+using InternalSecurity;
 
 namespace ParkingCitationReviewApp.Pages
 {
@@ -29,8 +31,10 @@ namespace ParkingCitationReviewApp.Pages
         private readonly ParkingReviewDBContext _db;
         private readonly IConfiguration _configuration;
         private readonly recaptcha recaptchaSettings;
+        
 
         private readonly IParkingCitationReviewsTasks pcrTasks;
+        
 
         [BindProperty]
         public ParkingCitationReviewApp.Models.CitationReviewRequest  ObjCitationReview { get;set;}
@@ -40,7 +44,11 @@ namespace ParkingCitationReviewApp.Pages
            //public List<int> checklist { get; set; }
 
 
-        public IndexModel(ParkingReviewDBContext db, IParkingCitationReviewsTasks pcrTasks,IWebHostEnvironment he, IConfiguration configuration, IOptions<recaptcha> settings)
+        public IndexModel(ParkingReviewDBContext db, IParkingCitationReviewsTasks pcrTasks,
+            
+             IWebHostEnvironment he, 
+            IConfiguration configuration, 
+            IOptions<recaptcha> settings)
         {
             _db = db;
             _he = he;
@@ -72,7 +80,8 @@ namespace ParkingCitationReviewApp.Pages
 
 
         }
-        public IActionResult OnPost()
+        //public  IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             //if(!String.IsNullOrEmpty(Request.Form["SelectReviewReasonIndex"].ToString()))
             //ObjCitationReview.ReasonId = Convert.ToDecimal(Request.Form["SelectReviewReasonIndex"].ToString());
@@ -92,6 +101,13 @@ namespace ParkingCitationReviewApp.Pages
             if (ModelState.IsValid)
             {
                 //TempData["Data"] = ObjCitationReview.RecipientAddressState;
+                //Insert the reviewer based random algorithm
+
+
+                //Insert the reviewer based random algorithm
+                //Bring the noneya reference 
+                NoneyaWebServiceClient noneya = new InternalSecurity.NoneyaWebServiceClient();
+                var users= await noneya.GetUsersInRoleAsync("Parking Citation Review", "Parking Citation Editors");
 
 
 
@@ -106,6 +122,8 @@ namespace ParkingCitationReviewApp.Pages
                     //DefaultValues list //
                     //objCitationReview.VehicleMakeID = Convert.ToInt32(1);
                     //check for citation no exists already in the db or not .If exists send a message to the user .
+
+                    //check the 
                     
 
                         if (UploadFiles != null)
@@ -126,8 +144,9 @@ namespace ParkingCitationReviewApp.Pages
 
                         _db.CitationReviewRequest.Add(ObjCitationReview);
 
-                        _db.SaveChanges();
-                   
+                    //_db.SaveChanges();
+                    await _db.SaveChangesAsync();
+
                 }
                 catch (Exception ex)
                 {

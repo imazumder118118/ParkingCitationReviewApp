@@ -17,7 +17,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Collections.Generic;
 using ParkingCitationReviews.EntityObjects;
-using ParkingCitationReviews.Logging;
+//using ParkingCitationReviews.Logging;
 
 namespace ParkingCitationReviews.DataAccess
 {
@@ -56,7 +56,7 @@ namespace ParkingCitationReviews.DataAccess
             catch (Exception ex)
             {
                 Type t = this.GetType();
-                ExceptionLogger log = new ExceptionLogger(ex);
+                //ExceptionLogger log = new ExceptionLogger(ex);
 
                 // throw up to next tier
                 throw;
@@ -94,8 +94,8 @@ namespace ParkingCitationReviews.DataAccess
             catch (Exception ex)
             {
                 Type t = this.GetType();
-                ExceptionLogger log = new ExceptionLogger
-                    (ex);
+                //ExceptionLogger log = new ExceptionLogger
+                  //  (ex);
                 throw ex;
             }
         }
@@ -122,7 +122,7 @@ namespace ParkingCitationReviews.DataAccess
             catch (Exception ex)
             {
                 Type t = this.GetType();
-                ExceptionLogger log = new ExceptionLogger(ex);
+                //ExceptionLogger log = new ExceptionLogger(ex);
                 throw ex;
             }
         }
@@ -145,7 +145,7 @@ namespace ParkingCitationReviews.DataAccess
             catch (Exception ex)
             {
                 Type t = this.GetType();
-                ExceptionLogger log = new ExceptionLogger(ex);
+                //ExceptionLogger log = new ExceptionLogger(ex);
                 throw ex;
             }
         }
@@ -174,7 +174,7 @@ namespace ParkingCitationReviews.DataAccess
             catch (Exception ex)
             {
                 Type t = this.GetType();
-                ExceptionLogger log = new ExceptionLogger(ex);
+                //ExceptionLogger log = new ExceptionLogger(ex);
                 throw ex;
             }
         }
@@ -200,7 +200,7 @@ namespace ParkingCitationReviews.DataAccess
             catch (Exception ex)
             {
                 Type t = this.GetType();
-                ExceptionLogger log = new ExceptionLogger(ex);
+                //ExceptionLogger log = new ExceptionLogger(ex);
                 throw ex;
             }
         }
@@ -285,7 +285,7 @@ namespace ParkingCitationReviews.DataAccess
             catch (Exception ex)
             {
                 Type t = this.GetType();
-                ExceptionLogger log = new ExceptionLogger(ex);
+                //ExceptionLogger log = new ExceptionLogger(ex);
                 throw ex;
             }
         }
@@ -305,7 +305,7 @@ namespace ParkingCitationReviews.DataAccess
             catch (Exception ex)
             {
                 Type t = this.GetType();
-                ExceptionLogger log = new ExceptionLogger(ex);
+                //ExceptionLogger log = new ExceptionLogger(ex);
                 throw ex;
             }
         }
@@ -335,7 +335,7 @@ namespace ParkingCitationReviews.DataAccess
             catch (Exception ex)
             {
                 Type t = this.GetType();
-                ExceptionLogger log = new ExceptionLogger(ex);
+                //ExceptionLogger log = new ExceptionLogger(ex);
                 throw ex;
             }
         }
@@ -368,7 +368,7 @@ namespace ParkingCitationReviews.DataAccess
             catch (Exception ex)
             {
                 Type t = this.GetType();
-                ExceptionLogger log = new ExceptionLogger(ex);
+                //ExceptionLogger log = new ExceptionLogger(ex);
                 throw ex;
             }
         }
@@ -398,7 +398,7 @@ namespace ParkingCitationReviews.DataAccess
             catch (Exception ex)
             {
                 Type t = this.GetType();
-                ExceptionLogger log = new ExceptionLogger(ex);
+                //ExceptionLogger log = new ExceptionLogger(ex);
                 throw ex;
             }
         }
@@ -433,7 +433,7 @@ namespace ParkingCitationReviews.DataAccess
             catch (Exception ex)
             {
                 Type t = this.GetType();
-                ExceptionLogger log = new ExceptionLogger(ex);
+                //ExceptionLogger log = new ExceptionLogger(ex);
                 throw ex;
             }
         }
@@ -467,7 +467,7 @@ namespace ParkingCitationReviews.DataAccess
             catch (Exception ex)
             {
                 Type t = this.GetType();
-                ExceptionLogger log = new ExceptionLogger(ex);
+                //ExceptionLogger log = new ExceptionLogger(ex);
                 throw ex;
             }
         }
