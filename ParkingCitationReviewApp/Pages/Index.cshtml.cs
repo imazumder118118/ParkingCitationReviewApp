@@ -104,14 +104,14 @@ namespace ParkingCitationReviewApp.Pages
                 //Insert the reviewer based random algorithm
 
 
-                //Insert the reviewer based random algorithm
+                //select the reviewer based random algorithm
                 //Bring the noneya reference 
                 NoneyaWebServiceClient noneya = new InternalSecurity.NoneyaWebServiceClient();
-                var users= await noneya.GetUsersInRoleAsync("Parking Citation Review", "Parking Citation Editors");
-
-
-
-
+                var users= await noneya.GetUsersInRoleAsync("Parking Citation Review", "Parking Citation Reviewer");
+                //Random selection of the user in the user list 
+                Random rand = new Random();
+                int index = rand.Next(users.Length);
+                ObjCitationReview.ExtReviewedByName1 = users[index]; 
 
                 try
                 {
