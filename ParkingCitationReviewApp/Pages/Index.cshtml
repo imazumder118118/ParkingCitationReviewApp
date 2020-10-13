@@ -4,132 +4,138 @@
 @model IndexModel
 @{
 
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Parking Citation Registration Form";
 }
 
 <div class="text-center">
     <h1 class="display-4">Parking Citation Review Registration Form</h1>
     @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
 </div>
-<div class="row">
-    <div class="col-md-12" >
+<div class="container"  >
+    
+    <div class="col-md-12"  >
 
         <form method="post" class="form-horizontal" enctype="multipart/form-data">
             <div asp-validation-summary="All" class="text-danger">
             </div>
-            <div class="form-group row">
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">CITATION INFORMATION</legend>
+                @*<div class="form-group row">
                 <div class="col-md-12" style="background-color:gray;width:100%">
                     <label class="control-label" style="color:white"> CITATION INFORMATION</label>
                 </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-6">
-                    <label class="control-label" style="background-color:skyblue;width:100%"> CITATION NO: *</label>
-                    <input asp-for="ObjCitationReview.CitationNumber" class="form-control" placeholder="Citation No" />
-                    <span asp-validation-for="ObjCitationReview.CitationNumber" class="text-danger"></span>
+            </div>*@
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label class="control-label" style="background-color:skyblue;width:100%"> CITATION NO: *</label>
+                        <input asp-for="ObjCitationReview.CitationNumber" class="form-control" placeholder="Citation No" />
+                        <span asp-validation-for="ObjCitationReview.CitationNumber" class="text-danger"></span>
 
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label" style="background-color:skyblue;width:100%">CITATION DATE:*</label>
+                        <input asp-for="ObjCitationReview.CitationIssueDate" id="objCitationIssuedate" class="form-control" placeholder="Issue Date" type="text" />
+                        <span asp-validation-for="ObjCitationReview.CitationIssueDate" class="text-danger"></span>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <label class="control-label" style="background-color:skyblue;width:100%">CITATION DATE:*</label>
-                    <input asp-for="ObjCitationReview.CitationIssueDate" id="objCitationIssuedate" class="form-control" placeholder="Issue Date" type="text" />
-                    <span asp-validation-for="ObjCitationReview.CitationIssueDate" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-6">
-                    <label class="control-label" style="background-color:skyblue;width:100%"> PLATE NO: *</label>
-                    <input asp-for="ObjCitationReview.PlateNumber" class="form-control" placeholder="Plate Number" />
-                    <span asp-validation-for="ObjCitationReview.PlateNumber" class="text-danger"></span>
-                </div>
-                <div class="col-md-6">
-                    <label class="control-label" style="background-color:skyblue;width:100%"> REQUEST DATE: *</label>
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label class="control-label" style="background-color:skyblue;width:100%"> PLATE NO: *</label>
+                        <input asp-for="ObjCitationReview.PlateNumber" class="form-control" placeholder="Plate Number" />
+                        <span asp-validation-for="ObjCitationReview.PlateNumber" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label" style="background-color:skyblue;width:100%"> REQUEST DATE: *</label>
 
-                    <input asp-for="ObjCitationReview.RequestDate" id="objCitationRequestdate" class="form-control" placeholder="Request Date" type="text" />
-                    <span asp-validation-for="ObjCitationReview.RequestDate" class="text-danger"></span>
+                        <input asp-for="ObjCitationReview.RequestDate" id="objCitationRequestdate" class="form-control" placeholder="Request Date" type="text" />
+                        <span asp-validation-for="ObjCitationReview.RequestDate" class="text-danger"></span>
+                    </div>
                 </div>
-            </div>
-           
-            <div class="col-md-12" style="background-color:gray;width:100%">
+            </fieldset>
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">REQUESTOR/OWNER INFORMATION</legend>
+                @*<div class="col-md-12" style="background-color:gray;width:100%">
                 <label class="control-label" style="color:white"> REQUESTOR/OWNER INFORMATION</label>
-            </div>
-            <br />
-            <div class="form-group row">
-                <div class="col-xs-4">
-                    <label for="ex1" style="background-color:skyblue;width:100%">FIRST NAME *</label>
-                    <input asp-for="ObjCitationReview.RecipientFirstName" class="form-control" placeholder="First">
-                    <span asp-validation-for="ObjCitationReview.RecipientFirstName" class="text-danger"></span>
+            </div>*@
+                <br />
+                <div class="form-group row">
+                    <div class="col-xs-4">
+                        <label for="ex1" style="background-color:skyblue;width:100%">FIRST NAME *</label>
+                        <input asp-for="ObjCitationReview.RecipientFirstName" class="form-control" placeholder="First">
+                        <span asp-validation-for="ObjCitationReview.RecipientFirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-xs-3">
+                        <label for="ex2" style="background-color:skyblue;width:100%">MIDDLE INITIAL: </label>
+                        <input asp-for="ObjCitationReview.RecipientMiddleInitial" class="form-control" placeholder="M.I.">
+
+                    </div>
+                    <div class="col-xs-4">
+                        <label for="ex3" style="background-color:skyblue;width:100%">LAST NAME*</label>
+                        <input asp-for="ObjCitationReview.RecipientLastName" class="form-control" placeholder="Last">
+                        <span asp-validation-for="ObjCitationReview.RecipientLastName" class="text-danger"></span>
+
+                    </div>
+                    <div class="col-md-4">
+                        <label control-label" style="background-color:skyblue;width:100%">REQUESTOR NAME: *</label>
+                        <input asp-for="ObjCitationReview.RequestorName" class="form-control" placeholder="REQUESTOR NAME" />
+
+                    </div>
                 </div>
-                <div class="col-xs-3">
-                    <label for="ex2" style="background-color:skyblue;width:100%">MIDDLE INITIAL: </label>
-                    <input asp-for="ObjCitationReview.RecipientMiddleInitial" class="form-control" placeholder="M.I.">
+                <div class="form-group">
+                    <label control-label" style="background-color:skyblue;width:100%">STREET ADDRESS 1 :</label>
+
+                    <input asp-for="ObjCitationReview.RecipientAddress1" class="form-control" placeholder="Address" />
+                    <span asp-validation-for="ObjCitationReview.RecipientAddress1" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label control-label" style="background-color:skyblue;width:100%">STREET ADDRESS 2 :</label>
+
+                    <input asp-for="ObjCitationReview.RecipientAddress2" class="form-control" placeholder="Address" />
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-2">
+                        <label for="ex1" style="background-color:skyblue;width:100%">CITY</label>
+                        <input asp-for="ObjCitationReview.RecipientAddressCity" class="form-control" placeholder="First">
+                        <span asp-validation-for="ObjCitationReview.RecipientAddressCity" class="text-danger"></span>
+                    </div>
+                    <div class="col-xs-3">
+                        <label for="ex2" style="background-color:skyblue;width:100%">STATE</label>
+                        <select class="custom-select" id="SelectState" asp-for="ObjCitationReview.RecipientAddressState" asp-items="@(new SelectList(Model.statesDictory,"Key", "Value"))">
+                            <option value="" selected disabled="disabled">--Select State--</option>
+                        </select>
+                        <span asp-validation-for="ObjCitationReview.RecipientAddressState" class="text-danger"></span>
+
+                    </div>
+                    <div class="col-xs-4">
+                        <label for="ex3" style="background-color:skyblue;width:100%">ZIP</label>
+                        <input asp-for="ObjCitationReview.RecipientAddressZip" class="form-control" placeholder="Last">
+                        <span asp-validation-for="ObjCitationReview.RecipientAddressZip" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label control-label" style="background-color:skyblue;width:100%">HOME PHONE No: </label>
+                        @*<input type="text" class="form-control bfh-phone" data-format="+1 (ddd) ddd-dddd">*@
+                        <input asp-for="ObjCitationReview.RecipientHomePhone" class="form-control" placeholder="Home phone no" data-format="+1 (ddd) ddd-dddd" />
+                    </div>
+                    <div class="col-md-6">
+                        <label control-label" style="background-color:skyblue;width:100%">EMAIL ADDRESS : </label>
+                        <input asp-for="ObjCitationReview.RecipientEmailAddress" class="form-control" placeholder="Email Id" />
+                        <span asp-validation-for="ObjCitationReview.RecipientEmailAddress" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-4">
+                        <label for="ex1" style="background-color:skyblue;width:100%">WORK PHONE : </label>
+                        <input asp-for="ObjCitationReview.RecipientWorkPhone" class="form-control" placeholder="Work Phone">
+                    </div>
+                    <div class="col-xs-3">
+                        <label for="ex2" style="background-color:skyblue;width:100%">EXT: </label>
+                        <input asp-for="ObjCitationReview.RecipientWorkExt" class="form-control" placeholder="Ext">
+                    </div>
 
                 </div>
-                <div class="col-xs-4">
-                    <label for="ex3" style="background-color:skyblue;width:100%">LAST NAME*</label>
-                    <input asp-for="ObjCitationReview.RecipientLastName" class="form-control" placeholder="Last">
-                    <span asp-validation-for="ObjCitationReview.RecipientLastName" class="text-danger"></span>
-
-                </div>
-                <div class="col-md-4">
-                    <label control-label" style="background-color:skyblue;width:100%">REQUESTOR NAME: *</label>
-                    <input asp-for="ObjCitationReview.RequestorName" class="form-control" placeholder="REQUESTOR NAME" />
-
-                </div>
-            </div>
-            <div class="form-group">
-                <label control-label" style="background-color:skyblue;width:100%">STREET ADDRESS 1 :</label>
-
-                <input asp-for="ObjCitationReview.RecipientAddress1" class="form-control" placeholder="Address" />
-                <span asp-validation-for="ObjCitationReview.RecipientAddress1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label control-label" style="background-color:skyblue;width:100%">STREET ADDRESS 2 :</label>
-
-                <input asp-for="ObjCitationReview.RecipientAddress2" class="form-control" placeholder="Address" />
-            </div>
-            <div class="form-group row">
-                <div class="col-xs-2">
-                    <label for="ex1" style="background-color:skyblue;width:100%">CITY</label>
-                    <input asp-for="ObjCitationReview.RecipientAddressCity" class="form-control" placeholder="First">
-                    <span asp-validation-for="ObjCitationReview.RecipientAddressCity" class="text-danger"></span>
-                </div>
-                <div class="col-xs-3">
-                    <label for="ex2" style="background-color:skyblue;width:100%">STATE</label>
-                    <select class="custom-select" id="SelectState" asp-for="ObjCitationReview.RecipientAddressState" asp-items="@(new SelectList(Model.statesDictory,"Key", "Value"))">
-                        <option value="" selected disabled="disabled">--Select State--</option>
-                    </select>
-                    <span asp-validation-for="ObjCitationReview.RecipientAddressState" class="text-danger"></span>
-
-                </div>
-                <div class="col-xs-4">
-                    <label for="ex3" style="background-color:skyblue;width:100%">ZIP</label>
-                    <input asp-for="ObjCitationReview.RecipientAddressZip" class="form-control" placeholder="Last">
-                    <span asp-validation-for="ObjCitationReview.RecipientAddressZip" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-6">
-                    <label control-label" style="background-color:skyblue;width:100%">HOME PHONE No: </label>
-                    @*<input type="text" class="form-control bfh-phone" data-format="+1 (ddd) ddd-dddd">*@
-                    <input asp-for="ObjCitationReview.RecipientHomePhone" class="form-control" placeholder="Home phone no" data-format="+1 (ddd) ddd-dddd" />
-                </div>
-                <div class="col-md-6">
-                    <label control-label" style="background-color:skyblue;width:100%">EMAIL ADDRESS : </label>
-                    <input asp-for="ObjCitationReview.RecipientEmailAddress" class="form-control" placeholder="Email Id" />
-                    <span asp-validation-for="ObjCitationReview.RecipientEmailAddress" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-xs-4">
-                    <label for="ex1" style="background-color:skyblue;width:100%">WORK PHONE : </label>
-                    <input asp-for="ObjCitationReview.RecipientWorkPhone" class="form-control" placeholder="Work Phone">
-                </div>
-                <div class="col-xs-3">
-                    <label for="ex2" style="background-color:skyblue;width:100%">EXT: </label>
-                    <input asp-for="ObjCitationReview.RecipientWorkExt" class="form-control" placeholder="Ext">
-                </div>
-
-            </div>
+            </fieldset>
             @*<div class="form-group">
             <div class="col-sm-3"><label>City</label><input asp-for="ObjCitationReview.RecipientAddressCity" class="form-control" placeholder="City"></div>
             <div class="col-sm-3">
@@ -152,124 +158,126 @@
             </select>
         </div>*@
 
-
-            <div class="form-group">
-                <div class="form-group row">
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">ADMINISTRATIVE REVIEW REQUESTED FOR FOLLOWING REASON(S)</legend>
+                <div class="form-group">
+                    @*<div class="form-group row">
                     <div class="col-md-12" style="background-color:gray;width:100%">
                         <label control-label" style="color:white">ADMINISTRATIVE REVIEW REQUESTED FOR FOLLOWING REASON(S)</label>
                     </div>
-                </div>
-                @*<label for="ex3">ADMINISTRATIVE REVIEW REQUESTED FOR FOLLOWING REASON(S)</label>*@
-                <br />
-                @foreach (var items in Model.displaydata)
-                {
-                    <label class="radio-inline">
-                        <input type="radio" asp-for="ObjCitationReview.ReasonId" value="@items.ReasonId" id="ObjCitationReview.ReasonId@(items.ReasonId)" />@items.ReasonDescription<br />
-                    </label>
+                </div>*@
+                    @*<label for="ex3">ADMINISTRATIVE REVIEW REQUESTED FOR FOLLOWING REASON(S)</label>*@
                     <br />
-                }
-                <span asp-validation-for="ObjCitationReview.ReasonId" class="text-danger"></span>
-                <br />
-                <div class="col-md-12" style="background-color:gray;width:100%">
-                    <label control-label" style="color:white">
-                        Only forms that meet the criteria listed above will be accepted for an Administrative Review. Supporting documentation is required, such as pictures, repair receipts or DMV information. Please attach.
-                        DESCRIPTION/EXPLANATION OF MEDICAL EMERGENCY
-                    </label>
+                    @foreach (var items in Model.displaydata)
+                    {
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="ObjCitationReview.ReasonId" value="@items.ReasonId" id="ObjCitationReview.ReasonId@(items.ReasonId)" />@items.ReasonDescription<br />
+                        </label>
+                        <br />
+                    }
+                    <span asp-validation-for="ObjCitationReview.ReasonId" class="text-danger"></span>
+                    <br />
+                    <div class="col-md-12" style="background-color:skyblue;width:100%">
+                        <label control-label" style="color:black">
+                            Only forms that meet the criteria listed above will be accepted for an Administrative Review. Supporting documentation is required, such as pictures, repair receipts or DMV information. Please attach.
+                            DESCRIPTION/EXPLANATION OF MEDICAL EMERGENCY
+                        </label>
+                    </div>
+
+                    @*<label for="ex3">Request Explanation : </label>*@
+                    <br />
+                    <textarea class="form-control" id="TextArea1" rows="8" cols="30" asp-for="ObjCitationReview.ReasonExplanation" maxlength="1000"></textarea>
+                    <span class="counter"></span>
+
+                    <br />
+
+                    <span asp-validation-for="ObjCitationReview.ReasonExplanation" class="text-danger"></span>
+                    <br />
+                    <input id="File1" type="file" asp-for="UploadFiles" />
+
+
+                </div>
+                </fieldset>
+                <div class="form-group row">
+                    <div class="col-md-12" style="background-color:skyblue;width:100%;">
+                        <label control-label" style="color:black">
+                            BY MY SIGNATURE, I DECLARE THE INFORMATION SUBMITTED IN REGARD TO THIS REQUEST FOR ADMINISTRATIVE REVIEW OF PARKING CITATIONS IS TRUE
+                            AND ACCURATE TO THE BEST OF MY KNOWLEDGE AND BELIEF.
+                        </label>
+                    </div>
                 </div>
 
-                @*<label for="ex3">Request Explanation : </label>*@
-                <br />
-                <textarea class="form-control" id="TextArea1" rows="8" cols="30" asp-for="ObjCitationReview.ReasonExplanation" maxlength="1000"></textarea>
-                <span class="counter"></span>
-
-                <br />
-
-                <span asp-validation-for="ObjCitationReview.ReasonExplanation" class="text-danger"></span>
-                <br />
-                <input id="File1" type="file" asp-for="UploadFiles" />
-
-
-            </div>
-            <div class="form-group row">
-                <div class="col-md-12" style="background-color:gray;width:100%">
-                    <label control-label" style="color:white">
-                        BY MY SIGNATURE, I DECLARE THE INFORMATION SUBMITTED IN REGARD TO THIS REQUEST FOR ADMINISTRATIVE REVIEW OF PARKING CITATIONS IS TRUE
-                        AND ACCURATE TO THE BEST OF MY KNOWLEDGE AND BELIEF.
-                    </label>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-xs-4">
-                    <label for="ex1">SIGNATURE </label>
-                    <input asp-for="ObjCitationReview.RecipientSign" class="form-control" placeholder="SIGNATURE">
-                    <span asp-validation-for="ObjCitationReview.RecipientSign" class="text-danger"></span>
-                </div>
-                <div class="col-xs-3">
+                <div class="form-group row">
                     <div class="col-xs-4">
-                        <label for="ex1">DATE </label>
-                        <input asp-for="ObjCitationReview.SignDate" class="form-control" placeholder="SIGNATURE" type="date">
-                        <span asp-validation-for="ObjCitationReview.SignDate" class="text-danger"></span>
-
+                        <label for="ex1">SIGNATURE </label>
+                        <input asp-for="ObjCitationReview.RecipientSign" class="form-control" placeholder="SIGNATURE">
+                        <span asp-validation-for="ObjCitationReview.RecipientSign" class="text-danger"></span>
                     </div>
                     <div class="col-xs-3">
+                        <div class="col-xs-4">
+                            <label for="ex1">DATE </label>
+                            <input asp-for="ObjCitationReview.SignDate" class="form-control" placeholder="SIGNATURE" type="date">
+                            <span asp-validation-for="ObjCitationReview.SignDate" class="text-danger"></span>
+
+                        </div>
+                        <div class="col-xs-3">
+
+                        </div>
 
                     </div>
-
                 </div>
-            </div>
 
-            <div style="display: none">
+                <div style="display: none">
 
-                <button type="button" id="hiddenbtn1" class="btn btn-primary" data-toggle="modal" data-target="#MessageModal" data-whatever="The Date Issued cannot be later than the Date of Request"></button>
-                <button type="button" id="hiddenbtn2" class="btn btn-primary" data-toggle="modal" data-target="#MessageModal" data-whatever="The Date Issued cannot be later than today's date"></button>
-                <button type="button" id="hiddenbtn3" class="btn btn-primary" data-toggle="modal" data-target="#MessageModal" data-whatever="Please upload the file less than 1 MB."></button>
-                <button type="button" id="hiddenbtn4" class="btn btn-primary" data-toggle="modal" data-target="#MessageModal" data-whatever="Please upload the file that has (.BMP, .PDF,.DOC,.DOCX,.GIF,.JPG,.JPEG,.PNG,.TXT) extensions."></button>
-            </div>
-            <div class="modal fade" id="MessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Alert Message</h5>
-                            @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>*@
-                        </div>
-                        <div class="modal-body">
-
-                            <div class="form-group">
-                                @*<label for="recipient-name" class="col-form-label">Recipient:</label>*@
-                                <input type="text" disabled="disabled" class="form-control" id="recipient-name">
+                    <button type="button" id="hiddenbtn1" class="btn btn-primary" data-toggle="modal" data-target="#MessageModal" data-whatever="The Date Issued cannot be later than the Date of Request"></button>
+                    <button type="button" id="hiddenbtn2" class="btn btn-primary" data-toggle="modal" data-target="#MessageModal" data-whatever="The Date Issued cannot be later than today's date"></button>
+                    <button type="button" id="hiddenbtn3" class="btn btn-primary" data-toggle="modal" data-target="#MessageModal" data-whatever="Please upload the file less than 1 MB."></button>
+                    <button type="button" id="hiddenbtn4" class="btn btn-primary" data-toggle="modal" data-target="#MessageModal" data-whatever="Please upload the file that has (.BMP, .PDF,.DOC,.DOCX,.GIF,.JPG,.JPEG,.PNG,.TXT) extensions."></button>
+                </div>
+                <div class="modal fade" id="MessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Alert Message</h5>
+                                @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>*@
                             </div>
+                            <div class="modal-body">
+
+                                <div class="form-group">
+                                    @*<label for="recipient-name" class="col-form-label">Recipient:</label>*@
+                                    <input type="text" disabled="disabled" class="form-control" id="recipient-name">
+                                </div>
 
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
 
-            <div id="captcha_container" data-expired-callback="recaptchaExpired"></div>
-            <label id="lblMessage" class="col-form-label"></label>
-            <input type="submit" value="Submit" class="btn btn-primary" id="btnSave" disabled='disabled'   />
+                <div id="captcha_container" data-expired-callback="recaptchaExpired"></div>
+                <label id="lblMessage" class="col-form-label"></label>
+                <input type="submit" value="Submit" class="btn btn-primary" id="btnSave" disabled='disabled' />
 
 
-            @section Scripts
-            {
+                @section Scripts
+                {
 
 
-                <!-- Bootstrap DatePicker -->
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" type="text/css" />
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js" type="text/javascript"></script>
-                <!-- Bootstrap DatePicker -->
-                <script>
+                    <!-- Bootstrap DatePicker -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" type="text/css" />
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js" type="text/javascript"></script>
+                    <!-- Bootstrap DatePicker -->
+                    <script>
 
 
-               
+
                     var captchaContainer = null;
                     var loadCaptcha = function () {
                         captchaContainer = grecaptcha.render('captcha_container', {
@@ -280,14 +288,14 @@
                                     $('#btnSave').prop('disabled', false);
                                 }
                                 else {
-                                   
+
                                 }
                                 console.log(response);
-                                
+
                             }
                         });
                     };
-                   
+
                     function recaptchaExpired() {
                         $('#btnSave').prop('disabled', true);;
                     }
@@ -329,7 +337,7 @@
                     //    $('#objCitationIssuedate').datepicker();
                     $('#btnSave').click(function () {
 
-                        //client side validation for re-captcha 
+                        //client side validation for re-captcha
                         //var message = '';
                         //if (typeof (grecaptcha) != 'undefined') {
                         //    var response = grecaptcha.getResponse();
@@ -337,15 +345,15 @@
                         //    if (response.length === 0) {
                         //        console.log('I am here');
                         //        ('#lblMessage').html = "Please check the checkbox.Captcha verification failed";
-                                
+
                         //        return false;
                         //    }
                         //    else {
                         //        $('#lblMessage').html = "";;
                         //    }
-                            
+
                         //}
-                        
+
                         //End of client side validaton for re-captcha
                         // alert('click');
                         //var obj = {};
@@ -428,14 +436,15 @@
 
 
 
-                </script>
-                <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
+                    </script>
+                    <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
 
-                <partial name="_ValidationScriptsPartial.cshtml" />
-            }
+                    <partial name="_ValidationScriptsPartial.cshtml" />
+                }
         </form>
 
     </div>
+         
 </div>
 
 

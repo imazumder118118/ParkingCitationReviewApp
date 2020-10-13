@@ -83,6 +83,7 @@ namespace ParkingCitationReviewApp.Pages
         //public  IActionResult OnPost()
         public async Task<IActionResult> OnPostAsync()
         {
+            
             //if(!String.IsNullOrEmpty(Request.Form["SelectReviewReasonIndex"].ToString()))
             //ObjCitationReview.ReasonId = Convert.ToDecimal(Request.Form["SelectReviewReasonIndex"].ToString());
             ObjCitationReview.VehicleMakeId = Convert.ToDecimal(1);
@@ -153,7 +154,8 @@ namespace ParkingCitationReviewApp.Pages
                     string msg = ex.StackTrace;
                     throw;
                 }
-                return RedirectToPage("./Index");
+                //return RedirectToPage("./Index");
+                return RedirectToPage("./Confirmation");
             }
             else
             {

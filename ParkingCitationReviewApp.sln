@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingCitationReviewApp", "ParkingCitationReviewApp\ParkingCitationReviewApp.csproj", "{1945FEBA-0BC0-40EC-BA0F-A689A21CE491}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParkingCitationReviewApp", "ParkingCitationReviewApp\ParkingCitationReviewApp.csproj", "{1945FEBA-0BC0-40EC-BA0F-A689A21CE491}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingCitationReviews.Business", "ParkingCitationReviews.Business\ParkingCitationReviews.Business.csproj", "{54D98C12-E9C4-424B-B1A5-4349D458748D}"
 EndProject
