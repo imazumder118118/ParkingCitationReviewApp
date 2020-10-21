@@ -83,7 +83,10 @@ namespace ParkingCitationReviewApp.Pages
         //public  IActionResult OnPost()
         public async Task<IActionResult> OnPostAsync()
         {
-            
+            //const int process = 1;
+            const int unprocess = 0;
+
+
             //if(!String.IsNullOrEmpty(Request.Form["SelectReviewReasonIndex"].ToString()))
             //ObjCitationReview.ReasonId = Convert.ToDecimal(Request.Form["SelectReviewReasonIndex"].ToString());
             ObjCitationReview.VehicleMakeId = Convert.ToDecimal(1);
@@ -109,10 +112,17 @@ namespace ParkingCitationReviewApp.Pages
                 //Bring the noneya reference 
                 NoneyaWebServiceClient noneya = new InternalSecurity.NoneyaWebServiceClient();
                 var users= await noneya.GetUsersInRoleAsync("Parking Citation Review", "Parking Citation Reviewer");
+                
                 //Random selection of the user in the user list 
                 Random rand = new Random();
                 int index = rand.Next(users.Length);
-                ObjCitationReview.ExtReviewedByName1 = users[index]; 
+                var userinfo = await noneya.GetUserInformationAsync(users[index]);
+                if (userinfo.NoneyaId != 0)
+                {
+                    ObjCitationReview.ReviewedById1 = userinfo.NoneyaId;//Assign Cityemployee Id for the first reviewer
+                    ObjCitationReview.ExtReviewedByName1 = users[index];//Assign Cityemployee name  for the first reviewer
+                }
+                ObjCitationReview.ReviewedById2 = unprocess;//Change the second review status to 0 or null 
 
                 try
                 {
