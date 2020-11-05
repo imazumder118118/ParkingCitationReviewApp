@@ -111,18 +111,29 @@ namespace ParkingCitationReviewApp.Pages
                 //select the reviewer based random algorithm
                 //Bring the noneya reference 
                 NoneyaWebServiceClient noneya = new InternalSecurity.NoneyaWebServiceClient();
-                var users= await noneya.GetUsersInRoleAsync("Parking Citation Review", "Parking Citation Reviewer");
+                var users= await noneya.GetUsersInRoleAsync("Parking Citation Review", "Parking Citation First Reviewer");
                 
                 //Random selection of the user in the user list 
                 Random rand = new Random();
                 int index = rand.Next(users.Length);
                 var userinfo = await noneya.GetUserInformationAsync(users[index]);
-                if (userinfo.NoneyaId != 0)
+                string FirstReviewerFullName = string.Empty;
+                if (userinfo.NoneyaId >= 0)
                 {
-                    ObjCitationReview.ReviewedById1 = userinfo.NoneyaId;//Assign Cityemployee Id for the first reviewer
-                    ObjCitationReview.ExtReviewedByName1 = users[index];//Assign Cityemployee name  for the first reviewer
+                    ObjCitationReview.ReviewedById1 = userinfo.NoneyaId;//Assign Noneya Id for the first reviewer
+                    if(userinfo.MiddleName.Length >0)
+                    {
+                        FirstReviewerFullName = userinfo.FirstName + " " + userinfo.MiddleName + " " + userinfo.LastName;
+                        
+                    }
+                    else
+                    {
+                        FirstReviewerFullName = userinfo.FirstName + " "  + userinfo.LastName;
+                    }
+                    ObjCitationReview.ExtReviewedByName1 = FirstReviewerFullName;//Assign Cityemployee name  for the first reviewer
+
                 }
-                ObjCitationReview.ReviewedById2 = unprocess;//Change the second review status to 0 or null 
+                ObjCitationReview.ReviewedById2 = unprocess;//Change the second review status to 0  
 
                 try
                 {
