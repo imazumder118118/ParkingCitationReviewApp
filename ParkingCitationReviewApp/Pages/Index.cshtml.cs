@@ -111,8 +111,10 @@ namespace ParkingCitationReviewApp.Pages
                 //select the reviewer based random algorithm
                 //Bring the noneya reference 
                 NoneyaWebServiceClient noneya = new InternalSecurity.NoneyaWebServiceClient();
+                //var users= await noneya.GetUsersInRoleAsync("Parking Citation Review", "Parking Citation First Reviewer");
                 var users= await noneya.GetUsersInRoleAsync("Parking Citation Review", "Parking Citation First Reviewer");
                 
+
                 //Random selection of the user in the user list 
                 Random rand = new Random();
                 int index = rand.Next(users.Length);
@@ -123,6 +125,10 @@ namespace ParkingCitationReviewApp.Pages
                     
                     ObjCitationReview.ExtReviewedByName1 = users[index];//Assign Cityemployee name  for the first reviewer
 
+                }
+                else
+                {
+                    ObjCitationReview.ExtReviewedByName1 = null;
                 }
                 ObjCitationReview.ReviewedById2 = unprocess;//Change the second review status to 0 or null 
 

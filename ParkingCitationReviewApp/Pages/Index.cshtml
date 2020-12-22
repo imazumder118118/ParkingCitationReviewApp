@@ -237,7 +237,7 @@
 
                     <button type="button" id="hiddenbtn1" class="btn btn-primary" data-toggle="modal" data-target="#MessageModal" data-whatever="The Date Issued cannot be later than the Date of Request"></button>
                     <button type="button" id="hiddenbtn2" class="btn btn-primary" data-toggle="modal" data-target="#MessageModal" data-whatever="The Date Issued cannot be later than today's date"></button>
-                    <button type="button" id="hiddenbtn3" class="btn btn-primary" data-toggle="modal" data-target="#MessageModal" data-whatever="Please upload the file less than 1 MB."></button>
+                    <button type="button" id="hiddenbtn3" class="btn btn-primary" data-toggle="modal" data-target="#MessageModal" data-whatever="Please upload the file less than 3 MB."></button>
                     <button type="button" id="hiddenbtn4" class="btn btn-primary" data-toggle="modal" data-target="#MessageModal" data-whatever="Please upload the file that has (.BMP, .PDF,.DOC,.DOCX,.GIF,.JPG,.JPEG,.PNG,.TXT) extensions."></button>
                 </div>
                 <div class="modal fade" id="MessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -421,8 +421,9 @@
                         //    ".CSV", ".CVS", ".DBF", ".DIF", ".DOC", ".DOCX", ".EPS", ".EXE", ".FM3", ".GIF", ".HQX", ".HTM", ".HTML", ".JPG", ".JPEG", ".MAC", ".MAP", ".MDB", ".MID", ".MIDI", ".MOV", ".QT", ".MTB",
                         //    ".MTW",".PDF",".P65",".T65",".PNG",".PPT",".PPTX",".PSD",".PSP",".QXD",".RA",".RTF",".SIT",".TAR",".TIF",".TXT",".WAV",".WK3",".WKS",".WPD",".WP5",".XLS",".XLSX",".ZIP"
                         //];
+                        //2097152 2 MB
                         var ExtensionList = [".BMP", ".PDF", ".DOC", ".DOCX", ".GIF", ".JPG", ".JPEG", ".PNG", ".TXT"];
-                        if (this.files[0].size > 1048576) {
+                        if (this.files[0].size > 3145728) {
                             $('#hiddenbtn3').click();
                             $("#File1").replaceWith($("#File1").val('').clone(true));
                             //$(this).val('');

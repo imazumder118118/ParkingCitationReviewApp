@@ -27,7 +27,7 @@ namespace ParkingCitationReviewApp.Models
             {
 #pragma warning disable CS1030 // #warning directive
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=DIT-SQL1603-Dv;pooling=true;Max Pool Size=6;Initial Catalog=ParkingReviewDB; User ID=ParkCitRevApp;Password=!!test99");
+                optionsBuilder.UseSqlServer("Data Source=DIT-SQL1603-Sv;pooling=true;Max Pool Size=6;Initial Catalog=ParkingReviewDB; User ID=ParkCitRevApp;Password=!!test99");
 #pragma warning restore CS1030 // #warning directive
             }
         }
