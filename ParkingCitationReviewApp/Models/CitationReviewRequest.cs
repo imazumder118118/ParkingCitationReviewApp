@@ -44,6 +44,7 @@ namespace ParkingCitationReviewApp.Models
         public string RecipientLastName { get; set; }
         [Required(ErrorMessage = "First Name is required field")]
         public string RecipientFirstName { get; set; }
+        [StringLength(1, ErrorMessage = "Middle initial cannot be more than one character")]
         public string RecipientMiddleInitial { get; set; }
         [Required(ErrorMessage = "Address is required field")]
         public string RecipientAddress1 { get; set; }
@@ -52,6 +53,7 @@ namespace ParkingCitationReviewApp.Models
         public string RecipientAddressCity { get; set; }
         [Required (ErrorMessage = "State is required field")]
         public string RecipientAddressState { get; set; }
+        [StringLength(5, ErrorMessage = "Zipcode is not more than 5 digits")]
         [Required(ErrorMessage = "Zip Code is required field")]
         public string RecipientAddressZip { get; set; }
         

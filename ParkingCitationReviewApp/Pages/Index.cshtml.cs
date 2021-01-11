@@ -23,6 +23,10 @@ using InternalSecurity;
 
 namespace ParkingCitationReviewApp.Pages
 {
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    [IgnoreAntiforgeryToken]
+    
+    
     public class IndexModel : PageModel
     {
         //private readonly ILogger<IndexModel> _logger;
@@ -81,6 +85,7 @@ namespace ParkingCitationReviewApp.Pages
 
         }
         //public  IActionResult OnPost()
+        
         public async Task<IActionResult> OnPostAsync()
         {
             //const int process = 1;
@@ -91,7 +96,8 @@ namespace ParkingCitationReviewApp.Pages
             //ObjCitationReview.ReasonId = Convert.ToDecimal(Request.Form["SelectReviewReasonIndex"].ToString());
             ObjCitationReview.VehicleMakeId = Convert.ToDecimal(1);
             ObjCitationReview.DeterminationId = Convert.ToDecimal(1);
-            if(!IsReCaptchValid())
+            
+            if (!IsReCaptchValid())
             {
                 ModelState.AddModelError(string.Empty, "Please check the checkbox, Captcha verification failed.");
             }

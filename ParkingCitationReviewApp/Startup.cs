@@ -13,6 +13,7 @@ using ParkingCitationReviewApp.Model;
 using Microsoft.EntityFrameworkCore;
 using ParkingCitationReviewApp.Models;
 using ParkingCitationReviews.DataAccess;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace ParkingCitationReviewApp
 {
@@ -22,9 +23,9 @@ namespace ParkingCitationReviewApp
         {
             var builder = new ConfigurationBuilder()
               .SetBasePath(env.ContentRootPath)
-              .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-              //.AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-              //.AddEnvironmentVariables();
+              .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+              .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+              .AddEnvironmentVariables();
 
             //Configuration = configuration;
             Configuration = builder.Build();
@@ -40,13 +41,20 @@ namespace ParkingCitationReviewApp
             services.AddDbContext<ParkingReviewDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Myconnection")));
             services.AddRazorPages();
             services.AddSingleton<IParkingCitationReviewsTasks, ParkingCitationReviewsTasks>();
-           
+            services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.ForwardedHeaders =
+                    ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseDeveloperExceptionPage();
+            app.UseForwardedHeaders();
+            app.UseHsts();
 
 
 
@@ -58,7 +66,7 @@ namespace ParkingCitationReviewApp
             //{
             //    app.UseExceptionHandler("/Error");
             //}
-           
+
 
             app.UseStaticFiles();
 
