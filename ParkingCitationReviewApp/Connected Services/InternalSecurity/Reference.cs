@@ -527,7 +527,7 @@ namespace InternalSecurity
         {
             if ((endpointConfiguration == EndpointConfiguration.NoneyaEndpointAddressToServer))
             {
-                return new System.ServiceModel.EndpointAddress("http://starappstage2.richva.ci.richmond.va.us/services/noneya/NoneyaWebService.svc");
+                return new System.ServiceModel.EndpointAddress("http://starapp2.richva.ci.richmond.va.us/services/noneya/NoneyaWebService.svc");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }

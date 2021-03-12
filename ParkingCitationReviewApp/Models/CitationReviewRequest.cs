@@ -53,12 +53,15 @@ namespace ParkingCitationReviewApp.Models
         public string RecipientAddressCity { get; set; }
         [Required (ErrorMessage = "State is required field")]
         public string RecipientAddressState { get; set; }
-        [StringLength(5, ErrorMessage = "Zipcode is not more than 5 digits")]
+        [StringLength(5,MinimumLength = 5, ErrorMessage = "Zipcode has to be 5 digits")]
+        [RegularExpression("^[0-9]{1,12}$", ErrorMessage = "Zipcode has to be in Numbers")]
         [Required(ErrorMessage = "Zip Code is required field")]
         public string RecipientAddressZip { get; set; }
         
         public string RecipientHomePhone { get; set; }
         public string RecipientWorkPhone { get; set; }
+        [StringLength(4, MinimumLength = 4, ErrorMessage = "Ext has to be 4 digits")]
+        [RegularExpression("^[0-9]{1,12}$", ErrorMessage = "Enter valid phone EXT Number")]
         public string RecipientWorkExt { get; set; }
         [Required(ErrorMessage ="Email id required field")]
         [RegularExpression(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*",ErrorMessage ="Valid email id is required.")]

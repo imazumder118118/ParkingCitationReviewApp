@@ -43,6 +43,9 @@ namespace ParkingCitationReviewApp.Pages
         [BindProperty]
         public ParkingCitationReviewApp.Models.CitationReviewRequest  ObjCitationReview { get;set;}
 
+        //[BindProperty]
+        //public ParkingCitationReviewApp.Models.ReviewNotes ObjReviewNotes { get; set; }
+
           [BindProperty]
           public int SelectReviewReasonIndex { get; set; }
            //public List<int> checklist { get; set; }
@@ -94,8 +97,8 @@ namespace ParkingCitationReviewApp.Pages
 
             //if(!String.IsNullOrEmpty(Request.Form["SelectReviewReasonIndex"].ToString()))
             //ObjCitationReview.ReasonId = Convert.ToDecimal(Request.Form["SelectReviewReasonIndex"].ToString());
-            ObjCitationReview.VehicleMakeId = Convert.ToDecimal(1);
-            ObjCitationReview.DeterminationId = Convert.ToDecimal(1);
+            ObjCitationReview.VehicleMakeId = Convert.ToDecimal(49);
+            ObjCitationReview.DeterminationId = Convert.ToDecimal(0);
             
             if (!IsReCaptchValid())
             {
@@ -118,8 +121,8 @@ namespace ParkingCitationReviewApp.Pages
                 //Bring the noneya reference 
                 NoneyaWebServiceClient noneya = new InternalSecurity.NoneyaWebServiceClient();
                 //var users= await noneya.GetUsersInRoleAsync("Parking Citation Review", "Parking Citation First Reviewer");
-                var users= await noneya.GetUsersInRoleAsync("Parking Citation Review", "Parking Citation First Reviewer");
-                
+                var users = await noneya.GetUsersInRoleAsync("Parking Citation Review", "Parking Citation First Reviewer");
+               // var users = userlist.Where(x => x != "CEDUMMY").ToArray();
 
                 //Random selection of the user in the user list 
                 Random rand = new Random();
@@ -166,6 +169,7 @@ namespace ParkingCitationReviewApp.Pages
                                 ObjCitationReview.DocumentPath = FileUpload;
                             }
                         }
+                         
 
                         _db.CitationReviewRequest.Add(ObjCitationReview);
 
@@ -178,6 +182,13 @@ namespace ParkingCitationReviewApp.Pages
                     string msg = ex.StackTrace;
                     throw;
                 }
+                //ObjReviewNotes.ReviewNumber = ObjCitationReview.ReviewNumber;
+                //ObjReviewNotes.NoteDate = DateTime.Now;
+                //ObjReviewNotes.Note = "Note" + ObjReviewNotes.NoteDate + "This citation review record was added by Citzen.";
+                //ObjReviewNotes.NoteType = "System";
+                //_db.ReviewNotes.Add(ObjReviewNotes);
+                //await _db.SaveChangesAsync();
+
                 //return RedirectToPage("./Index");
                 return RedirectToPage("./Confirmation");
             }
