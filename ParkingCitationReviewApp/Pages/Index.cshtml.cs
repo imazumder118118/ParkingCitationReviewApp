@@ -74,6 +74,7 @@ namespace ParkingCitationReviewApp.Pages
         public IFormFile UploadFiles { get; set; }
         
         
+        
 
 
 
@@ -83,12 +84,14 @@ namespace ParkingCitationReviewApp.Pages
             displaydata =  _db.ReviewReasonIndex.ToList();
             statesDictory = this.pcrTasks.GetStatesList();
             
+            
+
             //streetDictionary = this.pcrTasks.GetStreetTypeList();
 
 
         }
         //public  IActionResult OnPost()
-        
+
         public async Task<IActionResult> OnPostAsync()
         {
             //const int process = 1;
@@ -99,6 +102,7 @@ namespace ParkingCitationReviewApp.Pages
             //ObjCitationReview.ReasonId = Convert.ToDecimal(Request.Form["SelectReviewReasonIndex"].ToString());
             ObjCitationReview.VehicleMakeId = Convert.ToDecimal(49);
             ObjCitationReview.DeterminationId = Convert.ToDecimal(0);
+            ObjCitationReview.RequestDate = DateTime.Today;
             
             if (!IsReCaptchValid())
             {

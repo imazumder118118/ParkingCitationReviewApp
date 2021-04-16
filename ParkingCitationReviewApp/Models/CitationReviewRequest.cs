@@ -14,7 +14,7 @@ namespace ParkingCitationReviewApp.Models
         public decimal ReviewNumber { get; set; }
         [Required(ErrorMessage ="Citation No is reqired field")]
         public string CitationNumber { get; set; }
-        [Required(ErrorMessage = "Request Date is required field")]
+        //[Required(ErrorMessage = "Request Date is required field")]
         [Display(Name = "Citation Issue Date")]
         [DataType(DataType.Date)]
         public DateTime? RequestDate { get; set; }

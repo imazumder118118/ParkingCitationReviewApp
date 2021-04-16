@@ -11,7 +11,7 @@
     <h1 class="display-4">
         PARKING CITATION ADMINISTRATIVE REVIEW REQUEST
     </h1>
-    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+    <p>Note: All fields marked in * are required</p>
 </div>
 <div class="container"  >
     
@@ -29,27 +29,27 @@
             </div>*@
                 <div class="form-group row">
                     <div class="col-md-6">
-                        <label class="control-label" style="background-color:skyblue;width:100%"> CITATION NO: *</label>
+                        <label class="control-label" style="background-color:skyblue;width:100%"> CITATION NO *</label>
                         <input asp-for="ObjCitationReview.CitationNumber" class="form-control" placeholder="Citation No" />
                         <span asp-validation-for="ObjCitationReview.CitationNumber" class="text-danger"></span>
 
                     </div>
                     <div class="col-md-6">
-                        <label class="control-label" style="background-color:skyblue;width:100%">CITATION DATE:*</label>
+                        <label class="control-label" style="background-color:skyblue;width:100%">CITATION DATE *</label>
                         <input asp-for="ObjCitationReview.CitationIssueDate" id="objCitationIssuedate" class="form-control" placeholder="Issue Date" type="text" />
                         <span asp-validation-for="ObjCitationReview.CitationIssueDate" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-6">
-                        <label class="control-label" style="background-color:skyblue;width:100%"> PLATE NO: *</label>
+                        <label class="control-label" style="background-color:skyblue;width:100%"> PLATE NO  *</label>
                         <input asp-for="ObjCitationReview.PlateNumber" class="form-control" placeholder="Plate Number" />
                         <span asp-validation-for="ObjCitationReview.PlateNumber" class="text-danger"></span>
                     </div>
                     <div class="col-md-6">
-                        <label class="control-label" style="background-color:skyblue;width:100%"> REQUEST DATE: *</label>
+                        <label class="control-label" style="background-color:skyblue;width:100%"> REQUEST DATE </label>
 
-                        <input asp-for="ObjCitationReview.RequestDate" id="objCitationRequestdate" class="form-control" placeholder="Request Date" type="text" />
+                        <input asp-for="ObjCitationReview.RequestDate" id="objCitationRequestdate" class="form-control" placeholder="Request Date" type="text" disabled="disabled" />
                         <span asp-validation-for="ObjCitationReview.RequestDate" class="text-danger"></span>
                     </div>
                 </div>
@@ -67,30 +67,31 @@
                         <span asp-validation-for="ObjCitationReview.RecipientFirstName" class="text-danger"></span>
                     </div>
                     <div class="col-xs-3">
-                        <label for="ex2" style="background-color:skyblue;width:100%">MIDDLE INITIAL: </label>
+                        <label for="ex2" style="background-color:skyblue;width:100%">MIDDLE INITIAL </label>
                         <input asp-for="ObjCitationReview.RecipientMiddleInitial" class="form-control" placeholder="M.I.">
 
                     </div>
                     <div class="col-xs-4">
-                        <label for="ex3" style="background-color:skyblue;width:100%">LAST NAME*</label>
+                        <label for="ex3" style="background-color:skyblue;width:100%">LAST NAME *</label>
                         <input asp-for="ObjCitationReview.RecipientLastName" class="form-control" placeholder="Last">
                         <span asp-validation-for="ObjCitationReview.RecipientLastName" class="text-danger"></span>
 
                     </div>
                     <div class="col-md-4">
-                        <label control-label" style="background-color:skyblue;width:100%">REQUESTOR NAME: *</label>
-                        <input asp-for="ObjCitationReview.RequestorName" class="form-control" placeholder="REQUESTOR NAME" />
+                        &nbsp;
+                        @*<label control-label" style="background-color:skyblue;width:100%">REQUESTOR NAME *</label>
+                        <input asp-for="ObjCitationReview.RequestorName" class="form-control" placeholder="REQUESTOR NAME" />*@
 
                     </div>
                 </div>
                 <div class="form-group">
-                    <label control-label" style="background-color:skyblue;width:100%">STREET ADDRESS 1 *:</label>
+                    <label control-label" style="background-color:skyblue;width:100%">STREET ADDRESS 1 *</label>
 
                     <input asp-for="ObjCitationReview.RecipientAddress1" class="form-control" placeholder="Address" />
                     <span asp-validation-for="ObjCitationReview.RecipientAddress1" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label control-label" style="background-color:skyblue;width:100%">STREET ADDRESS 2 :</label>
+                    <label control-label" style="background-color:skyblue;width:100%">STREET ADDRESS 2 </label>
 
                     <input asp-for="ObjCitationReview.RecipientAddress2" class="form-control" placeholder="Address" />
                 </div>
@@ -117,26 +118,26 @@
                 <div class="form-group row">
 
                     <div class="col-md-6">
-                        <label control-label" style="background-color:skyblue;width:100%">HOME PHONE No: </label>
+                        <label control-label" style="background-color:skyblue;width:100%">HOME PHONE  </label>
                         @*<input type="text" class="form-control bfh-phone" data-format="+1 (ddd) ddd-dddd">*@
-                        <input type="tel" id="phone-number" asp-for="ObjCitationReview.RecipientHomePhone" class="form-control bfh-phone" />
+                        <input type="tel" id="phone-number" placeholder="Home Phone" asp-for="ObjCitationReview.RecipientHomePhone" class="form-control bfh-phone" />
 
 
                     </div>
 
                     <div class="col-md-6">
-                        <label control-label" style="background-color:skyblue;width:100%">EMAIL ADDRESS *: </label>
+                        <label control-label" style="background-color:skyblue;width:100%">EMAIL ADDRESS * </label>
                         <input asp-for="ObjCitationReview.RecipientEmailAddress" class="form-control" placeholder="Email Id" />
                         <span asp-validation-for="ObjCitationReview.RecipientEmailAddress" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-xs-4">
-                        <label for="ex1" style="background-color:skyblue;width:100%">WORK PHONE : </label>
+                        <label for="ex1" style="background-color:skyblue;width:100%">WORK PHONE </label>
                         <input type="tel" id="workphone-number" asp-for="ObjCitationReview.RecipientWorkPhone" class="form-control" placeholder="Work Phone">
                     </div>
                     <div class="col-xs-3">
-                        <label for="ex2" style="background-color:skyblue;width:100%">EXT: </label>
+                        <label for="ex2" style="background-color:skyblue;width:100%">EXT </label>
                         <input asp-for="ObjCitationReview.RecipientWorkExt" class="form-control" placeholder="Ext">
                     </div>
 
@@ -165,7 +166,7 @@
         </div>*@
 
             <fieldset class="scheduler-border">
-                <legend class="scheduler-border">ADMINISTRATIVE REVIEW REQUESTED FOR FOLLOWING REASON(S)</legend>
+                <legend class="scheduler-border">ADMINISTRATIVE REVIEW REQUESTED FOR FOLLOWING REASON</legend>
                 <div class="form-group">
                     @*<div class="form-group row">
                     <div class="col-md-12" style="background-color:gray;width:100%">
@@ -177,7 +178,7 @@
                     @foreach (var items in Model.displaydata)
                     {
                         <label class="radio-inline">
-                            <input type="radio" asp-for="ObjCitationReview.ReasonId" value="@items.ReasonId" id="ObjCitationReview.ReasonId@(items.ReasonId)" />@items.ReasonDescription<br />
+                            <input type="radio"  asp-for="ObjCitationReview.ReasonId" value="@items.ReasonId" id="ObjCitationReview.ReasonId@(items.ReasonId)" /> @items.ReasonDescription <br />
                         </label>
                         <br />
                     }
@@ -317,6 +318,10 @@
                             var length = parseInt($(this).attr("data-val-length-max"));
                             $(this).prop("maxlength", length);
                         });
+                        var today = new Date(); var dd = today.getDate(); var mm = today.getMonth() + 1; var yyyy = today.getFullYear();
+                        var todaymmddyyyy = mm + "/" + dd + "/" + yyyy;
+                        console.log(today);
+                        $('#objCitationRequestdate').val(todaymmddyyyy);
 
                     });
                     $(function () {
@@ -327,14 +332,14 @@
                             language: "tr"
                         });
                     });
-                    $(function () {
-                        $('#objCitationRequestdate').datepicker({
-                            changeMonth: true,
-                            changeYear: true,
-                            format: "mm/dd/yyyy",
-                            language: "tr"
-                        });
-                    });
+                    //$(function () {
+                    //    $('#objCitationRequestdate').datepicker({
+                    //        changeMonth: true,
+                    //        changeYear: true,
+                    //        format: "mm/dd/yyyy",
+                    //        language: "tr"
+                    //    });
+                    //});
 
                         $(function () {
                             $('#phone-number').mask('000-000-0000');
